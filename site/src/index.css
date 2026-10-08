@@ -33,6 +33,9 @@
   --font-mono: GeistMono, ui-monospace, SFMono-Regular, monospace;
   --font-landing-body: landingBody, Inter, system-ui, sans-serif;
   --font-landing-display: landingDisplay, landingBody, system-ui, sans-serif;
+}
+
+@theme inline {
   --color-background: var(--background);
   --color-background-subtle: var(--background-subtle);
   --color-foreground: var(--foreground);
@@ -101,10 +104,21 @@ body {
   --link: #2f6df6;
   --ring: #2f6df6;
   --success: #0cce6b;
-  color-scheme: light;
+  --color-background: #fff;
+  --color-background-subtle: #f3f6fa;
+  --color-foreground: #0f172a;
+  --color-foreground-secondary: #4b5768;
+  --color-foreground-muted: #7b8798;
+  --color-card: #fff;
+  --color-border: #0f172a1a;
+  --color-muted: #f3f6fa;
+  --color-link: #2f6df6;
+  --color-ring: #2f6df6;
+  --color-success: #0cce6b;
+  color-scheme: only light;
   font-family: var(--font-landing-body);
   background: #fff;
-  color: var(--foreground);
+  color: #0f172a;
 }
 
 .font-display {

@@ -152,10 +152,10 @@ export function LandingPage() {
                 <img alt="Creora" draggable={false} width={40} height={40} className="shrink-0 select-none" src="/logo.png" />
               </Link>
               <div className="flex items-center gap-3.5 sm:gap-7">
-                <Link to="/devlog" className="hidden text-[11px] font-medium tracking-[0.1em] whitespace-nowrap text-foreground uppercase transition-colors hover:text-foreground-secondary min-[360px]:inline xl:hidden sm:tracking-[0.14em]">
+                <Link to="/devlog" className="hidden text-[11px] font-medium tracking-[0.1em] whitespace-nowrap text-[#0f172a] uppercase transition-colors hover:text-[#4b5768] min-[360px]:inline xl:hidden sm:tracking-[0.14em]">
                   Dev log
                 </Link>
-                <Link to="/signin" className="text-[11px] font-medium tracking-[0.1em] whitespace-nowrap text-foreground uppercase transition-colors hover:text-foreground-secondary sm:tracking-[0.14em]">
+                <Link to="/signin" className="text-[11px] font-medium tracking-[0.1em] whitespace-nowrap text-[#0f172a] uppercase transition-colors hover:text-[#4b5768] sm:tracking-[0.14em]">
                   Sign in
                 </Link>
                 <Cta to="/chat">
@@ -164,12 +164,12 @@ export function LandingPage() {
                 </Cta>
               </div>
             </div>
-            <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-20 pb-24 text-center text-foreground sm:pt-24">
-              <h1 className="font-display text-[38px] leading-[0.92] font-normal tracking-[-0.04em] text-balance sm:text-[68px] lg:text-[88px] xl:text-[108px]">
+            <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-20 pb-24 text-center text-[#0f172a] sm:pt-24">
+              <h1 className="font-display text-[38px] leading-[0.92] font-normal tracking-[-0.04em] text-balance text-[#0f172a] sm:text-[68px] lg:text-[88px] xl:text-[108px]">
                 Private AI meets <br className="hidden sm:inline" />
                 limitless creation.
               </h1>
-              <p className="mt-8 max-w-md text-[12px] leading-[1.8] font-medium tracking-[0.3em] uppercase opacity-90 motion-safe:animate-[landing-rise_0.7s_var(--landing-ease)_0.13s_both] sm:text-[14px]">
+              <p className="mt-8 max-w-md text-[12px] leading-[1.8] font-medium tracking-[0.3em] text-[#0f172a] uppercase opacity-90 motion-safe:animate-[landing-rise_0.7s_var(--landing-ease)_0.13s_both] sm:text-[14px]">
                 Chat. Create. Build. Own it.
               </p>
               <CaCopy />
