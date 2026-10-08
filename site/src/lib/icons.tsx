@@ -191,6 +191,23 @@ export function Search({ className, size }: IconProps) {
   );
 }
 
+export function Copy({ className, size }: IconProps) {
+  return (
+    <Icon className={className} size={size}>
+      <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+      <path d="M4 16V4a2 2 0 0 1 2-2h10" />
+    </Icon>
+  );
+}
+
+export function Check({ className, size }: IconProps) {
+  return (
+    <Icon className={className} size={size}>
+      <path d="M20 6 9 17l-5-5" />
+    </Icon>
+  );
+}
+
 export function XLogo({ className, size = 16 }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} className={className} aria-hidden="true" fill="currentColor">
@@ -201,3 +218,4 @@ export function XLogo({ className, size = 16 }: IconProps) {
 
 export const X_URL = "https://x.com/CreoraAI_RH";
 export const X_HANDLE = "@CreoraAI_RH";
+export const TOKEN_CA = "0x91190add04a5b7edead115f0ef05614627c2a9cb";

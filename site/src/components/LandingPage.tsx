@@ -3,10 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   ArrowUp,
   ArrowUpRight,
+  Check,
   Clapperboard,
+  Copy,
   Hammer,
   ImageIcon,
   MessageCircle,
+  TOKEN_CA,
   X_HANDLE,
   X_URL,
 } from "../lib/icons";
@@ -38,6 +41,56 @@ function LiveDot() {
       </span>
       Live
     </span>
+  );
+}
+
+function CaCopy() {
+  const [copied, setCopied] = useState(false);
+  const short = `${TOKEN_CA.slice(0, 6)}…${TOKEN_CA.slice(-4)}`;
+
+  useEffect(() => {
+    if (!copied) return;
+    const t = window.setTimeout(() => setCopied(false), 1600);
+    return () => window.clearTimeout(t);
+  }, [copied]);
+
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(TOKEN_CA);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = TOKEN_CA;
+      el.setAttribute("readonly", "");
+      el.style.position = "fixed";
+      el.style.left = "-9999px";
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+    }
+    setCopied(true);
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      title={TOKEN_CA}
+      aria-label={copied ? "Contract address copied" : `Copy contract address ${TOKEN_CA}`}
+      className="mt-7 inline-flex max-w-full items-center gap-2.5 rounded-full bg-white/75 px-3.5 py-2 text-left shadow-[inset_0_0_0_1px_rgba(15,23,42,0.08)] backdrop-blur-md transition-[color,background-color,box-shadow,transform] duration-300 hover:-translate-y-px hover:bg-white hover:shadow-[inset_0_0_0_1px_rgba(47,109,246,0.35),0_8px_20px_-10px_rgba(47,109,246,0.6)] motion-safe:animate-[landing-rise_0.7s_var(--landing-ease)_0.2s_both]"
+    >
+      <span className="shrink-0 text-[10px] font-medium tracking-[0.2em] text-link uppercase">CA</span>
+      <span className="min-w-0 font-mono text-[12px] leading-none tracking-tight text-foreground sm:text-[13px]">
+        <span className="sm:hidden">{short}</span>
+        <span className="hidden truncate sm:inline">{TOKEN_CA}</span>
+      </span>
+      <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[rgba(47,109,246,0.1)] text-link">
+        {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+      </span>
+      <span className="sr-only" aria-live="polite">
+        {copied ? "Copied" : ""}
+      </span>
+    </button>
   );
 }
 
@@ -119,6 +172,7 @@ export function LandingPage() {
               <p className="mt-8 max-w-md text-[12px] leading-[1.8] font-medium tracking-[0.3em] uppercase opacity-90 motion-safe:animate-[landing-rise_0.7s_var(--landing-ease)_0.13s_both] sm:text-[14px]">
                 Chat. Create. Build. Own it.
               </p>
+              <CaCopy />
               <div className="relative mx-auto mt-9 w-full max-w-[680px] text-left sm:mt-11">
                 <div aria-hidden className="chat-breathe pointer-events-none absolute -inset-x-10 -top-6 -bottom-12 -z-10 rounded-[48px] bg-[radial-gradient(60%_55%_at_50%_50%,rgba(47,109,246,0.30),rgba(75,189,240,0.14)_55%,transparent_75%)] blur-2xl" />
                 <div className="group/prompt relative rounded-[26px] motion-safe:animate-[landing-prompt-in_0.9s_var(--landing-ease)_0.2s_both]">
