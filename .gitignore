@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vercel
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.vscode
+.idea
+site/node_modules
+site/dist
+site/node_modules/.tmp
+verify-routes.js

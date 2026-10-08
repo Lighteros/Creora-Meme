@@ -1,0 +1,92 @@
+export const docsNav = [
+  {
+    title: "Start",
+    items: [
+      { href: "/docs/getting_started", label: "Sign in and first project" },
+      { href: "/docs/privacy", label: "Privacy and your wallet" },
+    ],
+  },
+  {
+    title: "Create",
+    items: [
+      { href: "/docs/chat", label: "The Chat" },
+      { href: "/docs/building", label: "Building your app" },
+      { href: "/docs/publishing", label: "Publishing" },
+      { href: "/docs/domains", label: "Custom domains" },
+      { href: "/docs/data", label: "Databases and accounts" },
+      { href: "/docs/github", label: "GitHub" },
+    ],
+  },
+  {
+    title: "Account",
+    items: [
+      { href: "/docs/credits", label: "Credits and API key" },
+      { href: "/docs/account", label: "Your account" },
+    ],
+  },
+  {
+    title: "API",
+    items: [
+      { href: "/docs/api", label: "API overview" },
+      { href: "/docs/api_chat", label: "Chat completions" },
+      { href: "/docs/api_images", label: "Images" },
+      { href: "/docs/api_videos", label: "Videos" },
+      { href: "/docs/api_models", label: "Models and balance" },
+      { href: "/docs/api_errors", label: "Errors, limits and pricing" },
+    ],
+  },
+  {
+    title: "On chain",
+    items: [
+      { href: "/docs/agents", label: "Agents" },
+      { href: "/docs/tokens", label: "Token Launchpad" },
+      { href: "/docs/referrals", label: "Referrals" },
+      { href: "/docs/integrations", label: "1inch and Blockscout" },
+      { href: "/docs/revenue", label: "Payments and Revenue" },
+      { href: "/docs/network", label: "GPU network" },
+      { href: "/docs/token_utility", label: "Token Utility" },
+      { href: "/docs/governance", label: "Staking and Governance" },
+    ],
+  },
+  {
+    title: "Help",
+    items: [
+      { href: "/docs/community", label: "Community" },
+      { href: "/docs/limits", label: "Limits reference" },
+      { href: "/docs/faq", label: "FAQ" },
+      { href: "/docs/links", label: "Official Links" },
+    ],
+  },
+];
+
+export const docsTitles: Record<string, string> = {
+  "": "About Creora",
+  getting_started: "Sign in and first project",
+  privacy: "Privacy and your wallet",
+  chat: "The Chat",
+  building: "Building your app",
+  publishing: "Publishing",
+  domains: "Custom domains",
+  data: "Databases and accounts",
+  github: "GitHub",
+  credits: "Credits and API key",
+  account: "Your account",
+  api: "API overview",
+  api_chat: "Chat completions",
+  api_images: "Images",
+  api_videos: "Videos",
+  api_models: "Models and balance",
+  api_errors: "Errors, limits and pricing",
+  agents: "Agents",
+  tokens: "Token Launchpad",
+  referrals: "Referrals",
+  integrations: "1inch and Blockscout",
+  revenue: "Payments and Revenue",
+  network: "GPU network",
+  token_utility: "Token Utility",
+  governance: "Staking and Governance",
+  community: "Community",
+  limits: "Limits reference",
+  faq: "FAQ",
+  links: "Official Links",
+};

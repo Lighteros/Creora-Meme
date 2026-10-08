@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: GeistSans;
+  src: url("/fonts/Geist.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: GeistMono;
+  src: url("/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: landingBody;
+  src: url("/fonts/Inter.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 300 700;
+}
+
+@font-face {
+  font-family: landingDisplay;
+  src: url("/fonts/Onest.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 300 700;
+}
+
+@theme {
+  --font-sans: GeistSans, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: GeistMono, ui-monospace, SFMono-Regular, monospace;
+  --font-landing-body: landingBody, Inter, system-ui, sans-serif;
+  --font-landing-display: landingDisplay, landingBody, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-background-subtle: var(--background-subtle);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-link: var(--link);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+}
+
+:root {
+  --background: #0b0d12;
+  --background-subtle: #12151c;
+  --foreground: #f4f6fa;
+  --foreground-secondary: #a8b0bd;
+  --foreground-muted: #7b8494;
+  --card: #141821;
+  --border: #ffffff1a;
+  --muted: #1a1f29;
+  --link: #2f6df6;
+  --ring: #2f6df6;
+  --success: #0cce6b;
+  --landing-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --landing-stroke: #2f6df638;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.landing {
+  --background: #fff;
+  --background-subtle: #f3f6fa;
+  --foreground: #0f172a;
+  --foreground-secondary: #4b5768;
+  --foreground-muted: #7b8798;
+  --card: #fff;
+  --border: #0f172a1a;
+  --muted: #f3f6fa;
+  --link: #2f6df6;
+  --ring: #2f6df6;
+  --success: #0cce6b;
+  color-scheme: light;
+  font-family: var(--font-landing-body);
+  background: #fff;
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-landing-display);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.chamfer {
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.chamfer-sm {
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.landing-hero-video::-webkit-media-controls,
+.landing-hero-video::-webkit-media-controls-start-playback-button,
+.landing-hero-video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.landing-prompt-trace {
+  opacity: 0;
+  padding: 1.5px;
+  background: linear-gradient(115deg, #2f6df6, #4bbdf0 45%, #2f6df6 90%);
+  -webkit-mask:
+    conic-gradient(from 0deg, #000 var(--landing-trace), transparent 0),
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    conic-gradient(from 0deg, #000 var(--landing-trace), transparent 0),
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: source-in, xor;
+  mask-composite: intersect, exclude;
+  animation: landing-trace 1.5s var(--landing-ease) 0.45s both;
+}
+
+@property --landing-trace {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.chat-ring {
+  box-shadow: inset 0 0 0 1px rgba(47, 109, 246, 0.28);
+}
+
+.chat-breathe {
+  animation: chat-breathe 6s ease-in-out infinite;
+}
+
+.landing-marquee {
+  -webkit-mask-image: linear-gradient(90deg, #0000, #000 12% 88%, #0000);
+  mask-image: linear-gradient(90deg, #0000, #000 12% 88%, #0000);
+}
+
+.landing-marquee-track {
+  animation: 120s linear infinite landing-marquee;
+}
+
+.landing-marquee:hover .landing-marquee-track,
+.landing-marquee:focus-within .landing-marquee-track {
+  animation-play-state: paused;
+}
+
+.landing-chart-curve {
+  animation: 1.8s cubic-bezier(0.65, 0, 0.35, 1) 0.2s both landing-draw-once;
+}
+
+.landing-chart-fill {
+  animation: 1.2s ease-out 1.1s both landing-fade-in;
+}
+
+.landing-chart-after {
+  animation: 0.8s ease-out 1.9s both landing-fade-in;
+}
+
+.landing-chart-point {
+  animation:
+    0.5s ease-out 2s both landing-fade-in,
+    2.8s ease-in-out 2.6s infinite landing-pulse;
+}
+
+@keyframes landing-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes landing-pulse {
+  0%,
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes landing-marquee {
+  0% {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-50%);
+  }
+}
+
+@keyframes landing-draw-once {
+  0% {
+    stroke-dashoffset: 1px;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes landing-fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes landing-trace {
+  0% {
+    --landing-trace: 0deg;
+    opacity: 1;
+  }
+  80% {
+    --landing-trace: 360deg;
+    opacity: 1;
+  }
+  to {
+    --landing-trace: 360deg;
+    opacity: 0;
+  }
+}
+
+@keyframes landing-prompt-in {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    filter: blur();
+    transform: none;
+  }
+}
+
+@keyframes landing-row-loop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  6% {
+    opacity: 1;
+    transform: none;
+  }
+  88% {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: none;
+  }
+}
+
+@keyframes chat-breathe {
+  0%,
+  to {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-marquee-track,
+  .landing-prompt-trace,
+  .chat-breathe,
+  .landing-chart-curve,
+  .landing-chart-fill,
+  .landing-chart-after,
+  .landing-chart-point {
+    animation: none !important;
+  }
+}
